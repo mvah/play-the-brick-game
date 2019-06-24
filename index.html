@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Le javascript</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="menu2.css"/>
+		<!--script type="text/javascript" src="js.js"></script-->
+	</head>
+	<body onLoad="bang()">
+		<div class="content">
+			<div class="header">
+				
+			</div>
+			<div class="main">
+				<div class="left_content">
+					<input type="button" value="lancer" id="lancer" />
+					<input type="button" value="pause" id="pause"/>
+					<input type="button" value="stop" id="stop"/>
+					<input type="button" value="help" id="help"/>
+					<nav><ul id="menu"><li><a type="text" id="cpt">Options</a>
+							<ul>
+								<li><a href="#">Niveau 1</a></li>
+								<li><a href="#">Niveau 2</a></li>
+								<li><a href="#">Niveau 3</a></li>
+								
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+					<div id="screen">
+						<video src="fally.mp4"  controls style="width:160px; height: 160px;"></video>
+					</div>	
+				</div>	
+				<div class="main_content">
+					<div id="brique">
+
+						<!--img id="ball"src="ballon.jpg" width="40px" height="40px"/-->
+						<div id="bing" style="position:absolute;">
+							<img src="ballon.jpg" alt="bing" width="40px" height="40px" style="border-radius:30pt;" />
+						</div>
+					</div>
+					<div class="bar">
+						<img src="bar.png" width="120px" height="20px"/>
+					</bar>	
+				</div>	
+			</div>		
+		</div>	
+		
+		<script type="text/javascript">
+		    var abcisse = 680;
+			var  ordonnee = 440;
+			var nx = 1;
+			var  ny = 1;
+			var  vitesse = 5;
+			function bang() {
+			document.getElementById("bing").style.left = abcisse;
+			document.getElementById("bing").style.top = ordonnee;
+			largeur = 990 
+			hauteur = 535 
+			bas = (navigator.appName != "Microsoft Internet Explorer")? document.getElementById('bing').clientHeight : document.getElementById('bing').offsetHeight;
+
+			droite =  (navigator.appName != "Microsoft Internet Explorer")? document.getElementById('bing').clientWidth : document.getElementById('bing').offsetWidth;
+
+			if ((ordonnee + bas) >= hauteur) ny = -1;
+			if ((abcisse + droite) >= largeur) nx = -1;
+			if (ordonnee <= 120) ny = 1;
+			if (abcisse <= 500) nx = 1;
+			abcisse += nx;
+			ordonnee += ny;
+
+			setTimeout('bang()',vitesse);
+			}
+		</script>
+	</body>	
+</html>
